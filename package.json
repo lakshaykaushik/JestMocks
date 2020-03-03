@@ -11,6 +11,7 @@
     "applicationinsights": "^1.7.2",
     "axios": "^0.19.1",
     "azure-storage": "^2.10.3",
+    "jest-when": "^2.7.0",
     "request": "^2.88.0",
     "uuid": "^3.4.0"
   },

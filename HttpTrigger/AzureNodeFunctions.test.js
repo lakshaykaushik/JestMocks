@@ -1,65 +1,100 @@
 const AzureNodeFunctions = require('./AzureNodeFunctions.js')
 const storage = require('azure-storage')
+const entGen = storage.TableUtilities.entityGenerator
 
 jest.mock('azure-storage')
-
  
-
 test('Insert to table gives success', async ()  => {
+
+    const fn = (table, entity, cb) => {
+        cb(null, 'Insert to Table Successfull', { success: true });
+    }
     
     const tableServiceStub = {
         createTableIfNotExists: jest.fn,
         insertEntity: jest.fn,
         retrieveEntity: jest.fn,
-        insertOrReplaceEntity: jest.fn(() => Promise.resolve(Promise.resolve('Fetching Blob Successfull')))
-        
+        insertOrReplaceEntity: fn   
     }
     storage.createTableService.mockImplementationOnce(() => tableServiceStub)
     
-    var status =  await AzureNodeFunctions.InsertToTable('table', 'entity')
-    console.log(status)
-    expect(status).toBe('Fetching Blob Successfull')
-    
-})
+    var status = await AzureNodeFunctions.InsertToTable('table', {
+        PartitionKey: entGen.String('part2'),
+        RowKey: entGen.String('row1'),
+        taskDone: entGen.Boolean(true),
+      });
+      console.log('>>> status: ', status);
+      expect(status).toBe('Insert to Table Successfull')
+});
 
-/*test('Insert to table gives Failure', async () => {
+test('Insert to table gives failure', async ()  => {
+
+    const fn = (table, entity, cb) => {
+        cb('error', 'Insert to Table Failed', { success: false });
+    }
+    
     const tableServiceStub = {
         createTableIfNotExists: jest.fn,
         insertEntity: jest.fn,
         retrieveEntity: jest.fn,
-        insertOrReplaceEntity: jest.fn(() =>  Promise.reject(new Error('Insert Failure'))
-        )
+        insertOrReplaceEntity: fn   
     }
     storage.createTableService.mockImplementationOnce(() => tableServiceStub)
+    
+    try { await AzureNodeFunctions.InsertToTable('table', {
+        PartitionKey: entGen.String('part2'),
+        RowKey: entGen.String('row1'),
+        taskDone: entGen.Boolean(true),
+      });
+    } catch (err) {
+    console.log('>>> status: ', err);
+    expect(err).toBe('error')
+    }
+      
+});
 
-        await expect(AzureNodeFunctions.InsertToTable('table', 'entity')).rejects.toThrowError('Insert Failure')
-})
+test('Blob Fetching gives Success', async ()  => {
 
-test('Able to Fetch Blob from Storage Account', async () => {
     const expectedBlob = {
         "key": "value1",
         "anotherkey": "value2",
         "3rdkey": "value3"
     }
+
+    const fn = (table, entity, cb) => {
+        cb(null, expectedBlob);
+    }
+    
     const blobServiceStub = {
-        getBlobToText: jest.fn(() => Promise.resolve(expectedBlob)
-        )
+        getBlobToText: fn   
     }
     storage.createBlobService.mockImplementationOnce(() => blobServiceStub)
+    
+    var status = await AzureNodeFunctions.FetchJsonFile('container', 'blobName');
+      console.log('>>> status: ', status);
+      expect(status).toBe(expectedBlob)
+});
 
-        const status =  await AzureNodeFunctions.FetchJsonFile('container', 'blobName')
-        expect(status).toBe(expectedBlob)
-      
-})
+test('Blob Fetching gives Failure', async ()  => {
 
-test('Failed to Fetch Blob from Storage Account', async () => {
-   
+    const expectedBlob = {
+        "key": "value1",
+        "anotherkey": "value2",
+        "3rdkey": "value3"
+    }
+
+    const fn = (table, entity, cb) => {
+        cb('error', expectedBlob);
+    }
+    
     const blobServiceStub = {
-        getBlobToText: jest.fn(() => Promise.reject(new Error('Failed to fetch Blob'))
-        )
+        getBlobToText: fn   
     }
     storage.createBlobService.mockImplementationOnce(() => blobServiceStub)
-
-        await expect(AzureNodeFunctions.FetchJsonFile('container', 'blobName')).rejects.toThrowError('Failed to fetch Blob')
-      
-})*/
+    
+    try { await AzureNodeFunctions.FetchJsonFile('container', 'blobName');
+} catch (err) {
+      console.log('>>> status: ', err);
+      expect(err).toBe('error')
+}
+});
