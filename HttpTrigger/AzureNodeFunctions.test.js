@@ -3,18 +3,23 @@ const storage = require('azure-storage')
 
 jest.mock('azure-storage')
 
+ 
+
 test('Insert to table gives success', async ()  => {
+    
     const tableServiceStub = {
         createTableIfNotExists: jest.fn,
         insertEntity: jest.fn,
         retrieveEntity: jest.fn,
-        insertOrReplaceEntity: jest.fn(() => Promise.resolve().then('Fetching Blob Successfull')
-        )
+        insertOrReplaceEntity: jest.fn(() => Promise.resolve('Fetching Blob Successfull'))
+        
     }
     storage.createTableService.mockImplementationOnce(() => tableServiceStub)
-
-    const status = await AzureNodeFunctions.InsertToTable('table', 'entity')
+    
+    var status =  await AzureNodeFunctions.InsertToTable('table', 'entity')
+    console.log(status)
     expect(status).toBe('Fetching Blob Successfull')
+    
 })
 
 /*test('Insert to table gives Failure', async () => {
