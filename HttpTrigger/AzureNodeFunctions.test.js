@@ -11,7 +11,7 @@ test('Insert to table gives success', async ()  => {
         createTableIfNotExists: jest.fn,
         insertEntity: jest.fn,
         retrieveEntity: jest.fn,
-        insertOrReplaceEntity: jest.fn(() => Promise.resolve('Fetching Blob Successfull'))
+        insertOrReplaceEntity: jest.fn(() => Promise.resolve(Promise.resolve('Fetching Blob Successfull')))
         
     }
     storage.createTableService.mockImplementationOnce(() => tableServiceStub)

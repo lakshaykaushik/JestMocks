@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="1" time="6.935">
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2020-03-03T14:15:18" time="5.98" tests="1">
-    <testcase classname=" Insert to table gives success" name=" Insert to table gives success" time="5.006">
+<testsuites name="jest tests" tests="1" failures="1" time="5.819">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2020-03-03T14:49:53" time="5.502" tests="1">
+    <testcase classname=" Insert to table gives success" name=" Insert to table gives success" time="5.008">
       <failure>: Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.Error: 
-    at new Spec (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)
-    at new Spec (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)
-    at specFactory (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)
-    at Env.it (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)
-    at Env.it (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:128:23)
-    at test (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:117:21)
+    at new Spec (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)
+    at new Spec (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)
+    at specFactory (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)
+    at Env.it (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)
+    at Env.it (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:128:23)
+    at test (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:117:21)
     at Object.&lt;anonymous&gt; (/Users/lakshaykaushik/Documents/Sharing/HttpTrigger/AzureNodeFunctions.test.js:8:1)
-    at Runtime._execModule (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-runtime/build/index.js:1034:22)
-    at Runtime._loadModule (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-runtime/build/index.js:678:12)
-    at Runtime.requireModule (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-runtime/build/index.js:536:10)
-    at jasmine2 (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-jasmine2/build/index.js:203:11)
-    at runTestInternal (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-runner/build/runTest.js:413:22)
+    at Runtime._execModule (/usr/local/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:1034:22)
+    at Runtime._loadModule (/usr/local/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:678:12)
+    at Runtime.requireModule (/usr/local/lib/node_modules/jest/node_modules/jest-runtime/build/index.js:536:10)
+    at jasmine2 (/usr/local/lib/node_modules/jest/node_modules/jest-jasmine2/build/index.js:203:11)
+    at runTestInternal (/usr/local/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:413:22)
     at processTicksAndRejections (internal/process/task_queues.js:94:5)
-    at runTest (/Users/lakshaykaushik/Documents/Sharing/node_modules/jest-runner/build/runTest.js:487:34)</failure>
+    at runTest (/usr/local/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:487:34)</failure>
     </testcase>
   </testsuite>
 </testsuites>
