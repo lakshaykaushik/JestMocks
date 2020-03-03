@@ -1,0 +1,24 @@
+{
+  "name": "Sharing",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ./",
+    "test": "node_modules/.bin/jest --ci --reporters=jest-junit --reporters=default",
+    "coverage": "node_modules/.bin/jest --ci --reporters=jest-junit --coverage --coverageReporters=cobertura"
+  },
+  "dependencies": {
+    "applicationinsights": "^1.7.2",
+    "axios": "^0.19.1",
+    "azure-storage": "^2.10.3",
+    "request": "^2.88.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "prettier": "1.19.1",
+    "querystring": "^0.2.0"
+  }
+}
