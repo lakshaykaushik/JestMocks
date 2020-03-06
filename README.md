@@ -12,9 +12,9 @@ git clone the Repo
 #Prerequisites
 
 
-Clone the repo
+1. Clone the repo
 
-run npm install in the project directory, you are good to go
+2. Run npm install in the project directory, you are good to go
 
 
 #Running the tests
