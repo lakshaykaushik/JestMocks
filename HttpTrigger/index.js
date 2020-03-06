@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
         mailName: entGen.String('MailName')
     }
        var container = 'application1'
-       var blobName = 'Challenged Soft Lock-Non-Shadow.json'
+       var blobName = 'FetchThisBlob'
         try {
             var result = await AzureNodeFunctions.InsertToTable(tableName, entity)
             context.log(result)
