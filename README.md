@@ -10,7 +10,10 @@ git clone the Repo
 
 
 #Prerequisites
+
+
 Clone the repo
+
 run npm install in the project directory, you are good to go
 
 
@@ -29,5 +32,5 @@ npm run-script test
 
 #Acknowledgments
 
-Jest.io
+Jest.io,
 azure-npm
