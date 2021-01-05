@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "applicationinsights": "^1.7.2",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "azure-storage": "^2.10.3",
     "jest-when": "^2.7.0",
     "request": "^2.88.0",
